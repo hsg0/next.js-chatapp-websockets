@@ -1,0 +1,31 @@
+# from the project root
+cat > .gitignore << 'EOF'
+# dependencies
+node_modules
+# next build
+.next
+# misc
+.DS_Store
+*.log
+# env files
+.env
+.env.local
+.env.*.local
+backend/.env
+# output
+dist
+out
+EOF
+
+# if you ever accidentally tracked an env file, untrack it:
+git rm --cached -r backend/.env 2>/dev/null || true
+git rm --cached .env 2>/dev/null || true
+
+# stage EVERYTHING including deletions and new files
+git add -A
+
+# sanity check
+git status
+
+# commit
+git commit -m "feat: initial chat app (Next.js + Socket.IO + MongoDB)"""
